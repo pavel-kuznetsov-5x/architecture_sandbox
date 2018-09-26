@@ -9,13 +9,14 @@ android {
         targetCompatibility 1.8
     }
     defaultConfig {
-        applicationId "com.spqrta.architecture_sandbox"
+        applicationId "com.spqrta.app_mvvm"
         minSdkVersion 18
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -47,6 +48,8 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21"

@@ -11,12 +11,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar!!.title = getString(R.string.app_name)
 
         val adapter = TasksAdapter(this, R.layout.item_task)
-        adapter.setItemClickListener({ position, view, item ->
+        adapter.setItemClickListener { position, view, item ->
             startActivity(Intent(this, TaskActivity::class.java)
                     .putExtra(Task::class.toString(), item as Task))
-        })
+        }
         adapter.setItemsAndUpdate(TasksModel.instance.getTasks())
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = adapter
