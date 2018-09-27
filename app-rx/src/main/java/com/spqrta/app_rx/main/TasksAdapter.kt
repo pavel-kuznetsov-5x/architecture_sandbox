@@ -1,9 +1,10 @@
-package com.spqrta.app_rx
+package com.spqrta.app_rx.main
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.cucumber007.reusables.recycler.adapters.BaseRecyclerAdapter
+import com.spqrta.common.Task
 import kotlinx.android.synthetic.main.item_task.view.*
 
 class TasksAdapter(context: Context, itemLayout: Int)

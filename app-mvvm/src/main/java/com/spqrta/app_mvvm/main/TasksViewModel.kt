@@ -11,12 +11,12 @@ class TasksViewModel : ViewModel() {
     val tasksLiveData: MutableLiveData<List<Task>> = MutableLiveData()
 
     init {
-         TasksModel.INSTANCE.getTasks { tasks ->
-            tasksLiveData.value = tasks
-        }
+        update()
     }
 
     fun update() {
-
+        TasksModel.INSTANCE.getTasks { tasks ->
+            tasksLiveData.value = tasks
+        }
     }
 }
