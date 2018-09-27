@@ -1,4 +1,4 @@
-package com.spqrta.architecture_sandbox
+package com.spqrta.app_rx
 
 class TasksModel {
     private object Holder { val INSTANCE = TasksModel() }

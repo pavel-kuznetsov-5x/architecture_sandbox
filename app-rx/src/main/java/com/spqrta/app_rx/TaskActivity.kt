@@ -1,9 +1,8 @@
-package com.spqrta.architecture_sandbox.task
+package com.spqrta.app_rx
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.spqrta.architecture_sandbox.R
-import com.spqrta.architecture_sandbox.Task
 import kotlinx.android.synthetic.main.activity_task.*
 
 class TaskActivity : AppCompatActivity() {

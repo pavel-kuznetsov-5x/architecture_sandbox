@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.spqrta.architecture_sandbox.main.MainActivity">
+        <activity android:name="com.spqrta.app_mvvm.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.spqrta.architecture_sandbox.task.TaskActivity">
+        <activity android:name="com.spqrta.app_mvvm.task.TaskActivity">
         </activity>
     </application>
 

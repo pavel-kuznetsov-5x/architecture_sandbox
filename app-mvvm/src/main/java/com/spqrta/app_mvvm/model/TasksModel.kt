@@ -1,4 +1,4 @@
-package com.spqrta.architecture_sandbox.model
+package com.spqrta.app_mvvm.model
 
 import com.spqrta.common.Task
 import com.spqrta.common.TasksDataSource

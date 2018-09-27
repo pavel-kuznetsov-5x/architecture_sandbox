@@ -1,4 +1,4 @@
-package com.spqrta.architecture_sandbox
+package com.spqrta.common
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -8,6 +8,6 @@ import java.util.*
 class Task(val name: String): Parcelable {
 
     companion object {
-        fun default() = Task("Task "+Random().nextInt(100))
+        fun default() = Task("Task " + Random().nextInt(100))
     }
 }

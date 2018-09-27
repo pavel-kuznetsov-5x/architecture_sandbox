@@ -27,10 +27,20 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/AppTheme.Toolbar"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvTasks"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/strLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvTasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 </android.support.constraint.ConstraintLayout>

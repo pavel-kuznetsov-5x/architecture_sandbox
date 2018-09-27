@@ -14,7 +14,6 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -40,6 +39,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(':common')
     implementation 'com.github.cucumber007:reusables:-SNAPSHOT'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
