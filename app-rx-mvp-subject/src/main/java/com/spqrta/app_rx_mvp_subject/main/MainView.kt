@@ -6,4 +6,6 @@ import com.spqrta.common.Task
 interface MainView {
     fun displayTasks(tasks: List<Task>)
     fun displayState(state: LoadingState)
+    fun displayError(throwable: Throwable)
+
 }

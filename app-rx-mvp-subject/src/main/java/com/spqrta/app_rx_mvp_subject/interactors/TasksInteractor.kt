@@ -27,9 +27,11 @@ class TasksInteractor {
 
     private fun createTaskSourceAndLoad(): BehaviorSubject<List<Task>> {
         val source: BehaviorSubject<List<Task>> = BehaviorSubject.create()
-        TasksModel.INSTANCE.getTasks().subscribe {
+        TasksModel.INSTANCE.getTasksSingle().subscribe({
             source.onNext(it)
-        }
+        }, {
+            source.onError(it)
+        })
         return source
     }
 }

@@ -6,5 +6,6 @@ import com.spqrta.common.Task
 
 interface  MainView : MvpView {
     fun displayTasks(tasks: List<Task>)
-    fun displayState(state: LoadingState)
+    fun displayState(loadingState: LoadingState)
+    fun displayError(throwable: Throwable)
 }

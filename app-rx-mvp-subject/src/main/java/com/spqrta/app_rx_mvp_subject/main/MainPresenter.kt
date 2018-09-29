@@ -21,10 +21,13 @@ class MainPresenter(var view: MainView?) {
     }
 
     private fun createTasksSubscription(): Disposable {
-        return TasksInteractor.INSTANCE.getTasksObservable().subscribe {
+        return TasksInteractor.INSTANCE.getTasksObservable().subscribe ({
             view?.displayState(LoadingState.DEFAULT)
             view?.displayTasks(it)
-        }
+        }, {
+            view?.displayState(LoadingState.DEFAULT)
+            view?.displayError(it)
+        })
     }
 
     fun destroy() {

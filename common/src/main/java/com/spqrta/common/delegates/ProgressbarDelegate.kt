@@ -1,6 +1,7 @@
-package com.spqrta.common
+package com.spqrta.common.delegates
 
 import android.support.v4.widget.SwipeRefreshLayout
+import com.spqrta.common.LoadingState
 
 abstract class ProgressbarDelegate {
     abstract fun show()

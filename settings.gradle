@@ -1,1 +1,2 @@
-include ':app', ':app-rx',':app-mvvm', ':common', ':app-moxy', ':app-rx-mvp-subject'
+//include ':app', ':app-rx', ':app-mvvm', ':common', ':app-moxy', ':app-rx-mvp-subject'
+include ':app', ':app-rx', ':app-mvvm', ':app-moxy', ':app-rx-mvp-subject', ':common'
