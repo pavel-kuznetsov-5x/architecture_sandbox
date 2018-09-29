@@ -6,15 +6,14 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.app_rx_mvp_subject.R
 import com.spqrta.app_rx_mvp_subject.task.TaskActivity
-import com.spqrta.common.ProgressbarDelegate
-import com.spqrta.common.StrProgressbarDelegate
-import com.spqrta.common.Task
+import com.spqrta.common.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {
 
     lateinit var adapter: TasksAdapter
     lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var toolbarDelegate: ToolbarDelegate
 
     lateinit var presenter: MainPresenter
 
@@ -22,10 +21,9 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        supportActionBar!!.title = getString(R.string.app_name)
 
         progressbarDelegate = StrProgressbarDelegate(strLayout)
+        toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
 
         adapter = TasksAdapter(this, R.layout.item_task)
         adapter.setItemClickListener { position, view, item ->
@@ -46,6 +44,10 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun displayTasks(tasks: List<Task>) {
         adapter.setItemsAndUpdate(tasks)
         progressbarDelegate.hide()
+    }
+
+    override fun displayState(state: LoadingState) {
+        progressbarDelegate.applyState(state)
     }
 
     override fun onDestroy() {

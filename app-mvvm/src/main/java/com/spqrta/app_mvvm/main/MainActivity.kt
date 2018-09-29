@@ -8,23 +8,22 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.app_mvvm.task.TaskActivity
 import com.spqrta.architecture_sandbox.R
-import com.spqrta.common.ProgressbarDelegate
-import com.spqrta.common.StrProgressbarDelegate
-import com.spqrta.common.Task
+import com.spqrta.common.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var tasksViewModel: TasksViewModel
     lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var toolbarDelegate: ToolbarDelegate
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        supportActionBar!!.title = getString(R.string.app_name)
 
         progressbarDelegate = StrProgressbarDelegate(strLayout)
+        toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
 
         val adapter = TasksAdapter(this, R.layout.item_task)
         adapter.setItemClickListener { position, view, item ->
@@ -37,9 +36,11 @@ class MainActivity : AppCompatActivity() {
 
         tasksViewModel = ViewModelProviders.of(this).get(TasksViewModel::class.java)
 
-        progressbarDelegate.show()
+        tasksViewModel.stateLiveData.observe(this, Observer { state ->
+            progressbarDelegate.applyState(state!!)
+        })
+
         tasksViewModel.tasksLiveData.observe(this, Observer { tasks ->
-            progressbarDelegate.hide()
             adapter.setItemsAndUpdate(tasks)
         })
 
@@ -47,6 +48,5 @@ class MainActivity : AppCompatActivity() {
             progressbarDelegate.show()
             tasksViewModel.update()
         }
-
     }
 }

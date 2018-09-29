@@ -7,23 +7,21 @@ import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.architecture_sandbox.R
 import com.spqrta.architecture_sandbox.model.TasksModel
 import com.spqrta.architecture_sandbox.task.TaskActivity
-import com.spqrta.common.ProgressbarDelegate
-import com.spqrta.common.StrProgressbarDelegate
-import com.spqrta.common.Task
+import com.spqrta.common.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var adapter: TasksAdapter
     lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var toolbarDelegate: ToolbarDelegate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        supportActionBar!!.title = getString(R.string.app_name)
 
         progressbarDelegate = StrProgressbarDelegate(strLayout)
+        toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
 
         adapter = TasksAdapter(this, R.layout.item_task)
         adapter.setItemClickListener { position, view, item ->

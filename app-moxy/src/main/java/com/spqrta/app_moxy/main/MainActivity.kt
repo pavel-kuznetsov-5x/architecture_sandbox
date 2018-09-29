@@ -5,32 +5,29 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
-import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.spqrta.app_moxy.R
 import com.spqrta.app_moxy.task.TaskActivity
-import com.spqrta.common.ProgressbarDelegate
-import com.spqrta.common.StrProgressbarDelegate
-import com.spqrta.common.Task
+import com.spqrta.common.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
-    @InjectPresenter(type = PresenterType.GLOBAL)
+    @InjectPresenter
     internal lateinit var mainPresenter: MainPresenter
 
-    lateinit var adapter: TasksAdapter
     lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var toolbarDelegate: ToolbarDelegate
+    lateinit var adapter: TasksAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        supportActionBar!!.title = getString(R.string.app_name)
 
         progressbarDelegate = StrProgressbarDelegate(strLayout)
+        toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
 
         adapter = TasksAdapter(this, R.layout.item_task)
         adapter.setItemClickListener { position, view, item ->
@@ -42,7 +39,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             mainPresenter.update()
         }
 
-
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = adapter
     }
@@ -50,6 +46,10 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun displayTasks(tasks: List<Task>) {
         adapter.setItemsAndUpdate(tasks)
         progressbarDelegate.hide()
+    }
+
+    override fun displayState(state: LoadingState) {
+        progressbarDelegate.applyState(state)
     }
 
     @ProvidePresenter
