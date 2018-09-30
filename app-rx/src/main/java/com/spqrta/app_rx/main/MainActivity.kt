@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.app_rx.model.TasksModel
-import com.spqrta.app_rx.task.TaskActivity
 import com.spqrta.architecture_sandbox.R
-import com.spqrta.common.Task
+import com.spqrta.common.model.Task
 import com.spqrta.common.delegates.*
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*

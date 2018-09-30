@@ -1,23 +1,18 @@
-package com.spqrta.app_moxy.main
+package com.spqrta.app_moxy.task
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.spqrta.common.LoadingState
 import com.spqrta.common.model.TasksModel
 
-
 @InjectViewState
-class MainPresenter : MvpPresenter<MainView>() {
+class TaskPresenter(val taskId: Int) : MvpPresenter<TaskView>() {
 
     init {
-        update()
-    }
-
-    fun update() {
         viewState.displayState(LoadingState.LOADING)
-        TasksModel.INSTANCE.getTasks({
+        TasksModel.INSTANCE.getTask(taskId, { task ->
             viewState.displayState(LoadingState.DEFAULT)
-            viewState.displayTasks(it)
+            viewState.displayTask(task)
         }, {
             viewState.displayState(LoadingState.DEFAULT)
             viewState.displayError(it)

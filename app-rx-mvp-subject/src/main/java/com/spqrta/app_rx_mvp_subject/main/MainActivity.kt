@@ -7,14 +7,14 @@ import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.app_rx_mvp_subject.R
 import com.spqrta.app_rx_mvp_subject.task.TaskActivity
 import com.spqrta.common.LoadingState
-import com.spqrta.common.Task
 import com.spqrta.common.delegates.*
+import com.spqrta.common.model.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {
 
     lateinit var adapter: TasksAdapter
-    lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var progressIndicatorDelegate: ProgressIndicatorDelegate
     lateinit var toolbarDelegate: ToolbarDelegate
     lateinit var errorDialogDelegate: AlertDialogDelegate
 
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        progressbarDelegate = StrProgressbarDelegate(strLayout)
+        progressIndicatorDelegate = StrProgressbarDelegate(strLayout)
         toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
         errorDialogDelegate = AlertDialogDelegate(this, "Error")
 
@@ -47,11 +47,11 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun displayTasks(tasks: List<Task>) {
         adapter.setItemsAndUpdate(tasks)
-        progressbarDelegate.hide()
+        progressIndicatorDelegate.hide()
     }
 
     override fun displayState(state: LoadingState) {
-        progressbarDelegate.applyState(state)
+        progressIndicatorDelegate.applyState(state)
     }
 
     override fun displayError(throwable: Throwable) {

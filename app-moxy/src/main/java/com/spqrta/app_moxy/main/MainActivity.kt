@@ -9,8 +9,8 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.spqrta.app_moxy.R
 import com.spqrta.app_moxy.task.TaskActivity
 import com.spqrta.common.LoadingState
-import com.spqrta.common.Task
 import com.spqrta.common.delegates.*
+import com.spqrta.common.model.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -21,7 +21,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     internal lateinit var mainPresenter: MainPresenter
 
     lateinit var adapter: TasksAdapter
-    lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var progressIndicatorDelegate: ProgressIndicatorDelegate
     lateinit var toolbarDelegate: ToolbarDelegate
     lateinit var errorDialogDelegate: AlertDialogDelegate
 
@@ -30,7 +30,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        progressbarDelegate = StrProgressbarDelegate(strLayout)
+        progressIndicatorDelegate = StrProgressbarDelegate(strLayout)
         toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
         errorDialogDelegate = AlertDialogDelegate(this, "Error")
 
@@ -50,11 +50,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun displayTasks(tasks: List<Task>) {
         adapter.setItemsAndUpdate(tasks)
-        progressbarDelegate.hide()
+        progressIndicatorDelegate.hide()
     }
 
     override fun displayState(loadingState: LoadingState) {
-        progressbarDelegate.applyState(loadingState)
+        progressIndicatorDelegate.applyState(loadingState)
     }
 
     override fun displayError(throwable: Throwable) {

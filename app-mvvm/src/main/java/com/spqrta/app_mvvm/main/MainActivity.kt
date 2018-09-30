@@ -8,14 +8,15 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.app_mvvm.task.TaskActivity
 import com.spqrta.architecture_sandbox.R
-import com.spqrta.common.Task
 import com.spqrta.common.delegates.*
+import com.spqrta.common.model.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var tasksViewModel: TasksViewModel
-    lateinit var progressbarDelegate: ProgressbarDelegate
+
+    lateinit var progressIndicatorDelegate: ProgressIndicatorDelegate
     lateinit var toolbarDelegate: ToolbarDelegate
     lateinit var errorDialogDelegate: AlertDialogDelegate
 
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        progressbarDelegate = StrProgressbarDelegate(strLayout)
+        progressIndicatorDelegate = StrProgressbarDelegate(strLayout)
         toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
         errorDialogDelegate = AlertDialogDelegate(this, "Error")
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         tasksViewModel = ViewModelProviders.of(this).get(TasksViewModel::class.java)
 
         tasksViewModel.stateLiveData.observe(this, Observer { state ->
-            progressbarDelegate.applyState(state!!)
+            progressIndicatorDelegate.applyState(state!!)
         })
 
         tasksViewModel.tasksLiveData.observe(this, Observer { tasks ->
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         strLayout.setOnRefreshListener {
-            progressbarDelegate.show()
+            progressIndicatorDelegate.show()
             tasksViewModel.update()
         }
     }

@@ -6,15 +6,15 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.architecture_sandbox.R
 import com.spqrta.architecture_sandbox.task.TaskActivity
-import com.spqrta.common.Task
-import com.spqrta.common.TasksModel
 import com.spqrta.common.delegates.*
+import com.spqrta.common.model.Task
+import com.spqrta.common.model.TasksModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var adapter: TasksAdapter
-    lateinit var progressbarDelegate: ProgressbarDelegate
+    lateinit var progressIndicatorDelegate: ProgressIndicatorDelegate
     lateinit var toolbarDelegate: ToolbarDelegate
     lateinit var errorDialogDelegate: AlertDialogDelegate
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        progressbarDelegate = StrProgressbarDelegate(strLayout)
+        progressIndicatorDelegate = StrProgressbarDelegate(strLayout)
         toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
         errorDialogDelegate = AlertDialogDelegate(this, "Error")
 
@@ -43,14 +43,15 @@ class MainActivity : AppCompatActivity() {
         rvTasks.adapter = adapter
     }
 
+    //todo protomvp methods
     private fun loadTasks() {
-        progressbarDelegate.show()
+        progressIndicatorDelegate.show()
         TasksModel.INSTANCE.getTasks ({ tasks ->
             adapter.setItemsAndUpdate(tasks)
-            progressbarDelegate.hide()
+            progressIndicatorDelegate.hide()
         }, {
             errorDialogDelegate.show(message = it.message!!)
-            progressbarDelegate.hide()
+            progressIndicatorDelegate.hide()
         })
     }
 }

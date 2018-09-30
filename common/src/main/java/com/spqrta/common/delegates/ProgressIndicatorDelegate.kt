@@ -1,9 +1,10 @@
 package com.spqrta.common.delegates
 
 import android.support.v4.widget.SwipeRefreshLayout
+import android.view.View
 import com.spqrta.common.LoadingState
 
-abstract class ProgressbarDelegate {
+abstract class ProgressIndicatorDelegate {
     abstract fun show()
     abstract fun hide()
 
@@ -15,7 +16,7 @@ abstract class ProgressbarDelegate {
     }
 }
 
-class StrProgressbarDelegate(val strLayout: SwipeRefreshLayout): ProgressbarDelegate() {
+class StrProgressbarDelegate(val strLayout: SwipeRefreshLayout): ProgressIndicatorDelegate() {
 
     override fun show() {
         strLayout.isRefreshing = true
@@ -23,5 +24,16 @@ class StrProgressbarDelegate(val strLayout: SwipeRefreshLayout): ProgressbarDele
 
     override fun hide() {
         strLayout.isRefreshing = false
+    }
+}
+
+class HideableProgressbarDelegate(val view: View): ProgressIndicatorDelegate() {
+
+    override fun show() {
+        view.visibility = View.VISIBLE
+    }
+
+    override fun hide() {
+        view.visibility = View.GONE
     }
 }

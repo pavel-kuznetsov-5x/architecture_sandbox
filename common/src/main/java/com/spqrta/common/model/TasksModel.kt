@@ -1,7 +1,8 @@
-package com.spqrta.common
+package com.spqrta.common.model
 
 import android.os.Handler
 import android.os.Looper
+import com.spqrta.common.TasksDataSource
 import kotlinx.coroutines.experimental.launch
 
 class TasksModel {
@@ -26,6 +27,22 @@ class TasksModel {
                 }
             }
 
+
+        }
+    }
+
+    fun getTask(id: Int, callback: (Task) -> Unit, errorCallback: (Throwable) -> Unit) {
+        launch {
+            try {
+                val task = TasksDataSource.INSTANCE.getTask(id)
+                handler.post {
+                    callback(task)
+                }
+            } catch (e: Throwable) {
+                handler.post {
+                    errorCallback(e)
+                }
+            }
 
         }
     }

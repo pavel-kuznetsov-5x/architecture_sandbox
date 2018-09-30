@@ -1,7 +1,7 @@
 package com.spqrta.app_rx_mvp_subject.interactors
 
 import com.spqrta.app_rx_mvp_subject.model.TasksModel
-import com.spqrta.common.Task
+import com.spqrta.common.model.Task
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 

@@ -1,31 +1,37 @@
-package com.spqrta.app_mvvm.main
+package com.spqrta.app_mvvm.task
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
 import com.spqrta.common.LoadingState
 import com.spqrta.common.SingleLiveEvent
 import com.spqrta.common.model.Task
 import com.spqrta.common.model.TasksModel
 
 
-class TasksViewModel : ViewModel() {
+class TaskViewModel(val id: Int) : ViewModel() {
 
-    val tasksLiveData: MutableLiveData<List<Task>> = MutableLiveData()
+    val taskLiveData: MutableLiveData<Task> = MutableLiveData()
     val stateLiveData: MutableLiveData<LoadingState> = MutableLiveData()
     val errorLiveEvent: SingleLiveEvent<Throwable> = SingleLiveEvent()
 
     init {
-        update()
-    }
-
-    fun update() {
         stateLiveData.value = LoadingState.LOADING
-        TasksModel.INSTANCE.getTasks ({ tasks ->
+        TasksModel.INSTANCE.getTask (id, { task ->
             stateLiveData.value = LoadingState.DEFAULT
-            tasksLiveData.value = tasks
+            taskLiveData.value = task
         }, {
             stateLiveData.value = LoadingState.DEFAULT
             errorLiveEvent.value = it
         })
     }
+
+}
+
+class TaskViewModelFactory(private val id: Int) : ViewModelProvider.NewInstanceFactory() {
+
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        return TaskViewModel(id) as T
+    }
+
 }

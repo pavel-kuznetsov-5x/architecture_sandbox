@@ -1,6 +1,6 @@
 package com.spqrta.app_rx.model
 
-import com.spqrta.common.Task
+import com.spqrta.common.model.Task
 import com.spqrta.common.TasksDataSource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
