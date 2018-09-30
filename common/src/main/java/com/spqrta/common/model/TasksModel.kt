@@ -7,12 +7,10 @@ import kotlinx.coroutines.experimental.launch
 
 class TasksModel {
     private object Holder { val INSTANCE = TasksModel() }
-
-    companion object {
-        val INSTANCE: TasksModel by lazy { Holder.INSTANCE }
-    }
+    companion object { val INSTANCE: TasksModel by lazy { Holder.INSTANCE } }
 
     private val handler = Handler(Looper.getMainLooper())
+    private val cache: TasksLruCache = TasksLruCache()
 
     fun getTasks(callback: (List<Task>) -> Unit, errorCallback: (Throwable) -> Unit) {
         launch {
@@ -32,18 +30,29 @@ class TasksModel {
     }
 
     fun getTask(id: Int, callback: (Task) -> Unit, errorCallback: (Throwable) -> Unit) {
-        launch {
-            try {
-                val task = TasksDataSource.INSTANCE.getTask(id)
-                handler.post {
-                    callback(task)
+        val cachedTask = cache.get(id)
+        if(cachedTask != null) callback(cachedTask)
+        else {
+            launch {
+                try {
+                    val task = TasksDataSource.INSTANCE.getTask(id)
+                    handler.post {
+                        cache.put(id, task)
+                        callback(task)
+                    }
+                } catch (e: Throwable) {
+                    handler.post {
+                        errorCallback(e)
+                    }
                 }
-            } catch (e: Throwable) {
-                handler.post {
-                    errorCallback(e)
-                }
-            }
 
+            }
         }
+    }
+
+    fun cached(id: Int, getter: () -> Task) {
+
+
+
     }
 }
