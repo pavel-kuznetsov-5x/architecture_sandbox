@@ -16,7 +16,7 @@ class TasksDataSource {
     companion object {
         val INSTANCE: TasksDataSource by lazy { Holder.INSTANCE }
         const val DELAY = 3000
-        const val ERROR_PROBABILITY = 0.0
+        const val ERROR_PROBABILITY = 0.2
     }
 
     private fun createTasksList() = listOf(

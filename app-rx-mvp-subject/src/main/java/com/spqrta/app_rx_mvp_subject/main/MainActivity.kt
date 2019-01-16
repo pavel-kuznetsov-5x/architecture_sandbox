@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.spqrta.app_rx_mvp_subject.R
+import com.spqrta.app_rx_mvp_subject.R.id.rvTasks
+import com.spqrta.app_rx_mvp_subject.R.id.strLayout
 import com.spqrta.app_rx_mvp_subject.task.TaskActivity
 import com.spqrta.common.LoadingState
 import com.spqrta.common.delegates.*
