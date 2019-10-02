@@ -3,22 +3,19 @@ package com.spqrta.app_mvvm.data
 import com.spqrta.common.model.Task
 import io.reactivex.Single
 
-class TasksInteractor(val dataSource: TasksDataSource) {
+class TasksInteractor(val tasksRepository: TasksRepository) {
 
-    fun getTasks(): Single<List<Task>> = dataSource.getTasks()
-            .doOnSuccess {
-                //here we can perform some operations e.g. caching
-            }
-            .map {
-                //or filtering
-                it
-            }
+    //example of business logic
+    fun getFilteredTasks(): Single<List<Task>> = tasksRepository.getTasks()
+            .map { it.filter { true } }
 
-    fun getTask(id: Int): Single<Task> = dataSource.getTask(id)
+    fun getTasks(): Single<List<Task>> = tasksRepository.getTasks()
+
+    fun getTask(id: Int): Single<Task> = tasksRepository.getTask(id)
 
     companion object {
         val instance by lazy {
-            TasksInteractor(TaskCustomDataSource.instance)
+            TasksInteractor(TasksRepository.instance)
         }
     }
 
