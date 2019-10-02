@@ -44,7 +44,7 @@ class TaskActivity : AppCompatActivity() {
                 is JustLoading -> {
                     progressIndicatorDelegate.show()
                 }
-                is TaskViewModel.Initial -> {
+                is TaskViewModel.Success -> {
                     progressIndicatorDelegate.hide()
                     displayTask(state.task)
                 }

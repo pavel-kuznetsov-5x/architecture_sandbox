@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 is JustLoading -> {
                     progressIndicatorDelegate.show()
                 }
-                is TasksViewModel.Initial -> {
+                is TasksViewModel.Success -> {
                     progressIndicatorDelegate.hide()
                     adapter.setItemsAndUpdate(state.tasks)
                 }

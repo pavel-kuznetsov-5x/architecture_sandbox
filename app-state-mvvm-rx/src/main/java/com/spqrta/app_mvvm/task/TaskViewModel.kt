@@ -18,13 +18,13 @@ class TaskViewModel(
 
     private fun loadTask() {
         tasksInteractor.getTask(id).subscribeManaged({ task ->
-            state.value = Initial(task)
+            state.value = Success(task)
         }, {
             state.value = JustError(it)
         })
     }
 
-    class Initial(val task: Task) : State<Payload>()
+    class Success(val task: Task) : State<Payload>()
 }
 
 class TaskViewModelFactory(private val id: Int) : ViewModelProvider.NewInstanceFactory() {

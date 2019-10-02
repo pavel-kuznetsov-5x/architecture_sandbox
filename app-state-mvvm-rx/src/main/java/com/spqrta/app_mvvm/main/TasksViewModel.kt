@@ -15,7 +15,7 @@ class TasksViewModel(private val tasksInteractor: TasksInteractor) : BaseStateVi
 
     private fun loadTasks() {
         tasksInteractor.getTasks().subscribeManaged({ tasks ->
-            state.value = Initial(tasks)
+            state.value = Success(tasks)
         }, {
             state.value = JustError(it)
         })
@@ -27,7 +27,7 @@ class TasksViewModel(private val tasksInteractor: TasksInteractor) : BaseStateVi
         loadTasks()
     }
 
-    class Initial(val tasks: List<Task>) : State<Payload>()
+    class Success(val tasks: List<Task>) : State<Payload>()
 }
 
 class TasksViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
