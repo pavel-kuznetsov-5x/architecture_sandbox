@@ -23,7 +23,13 @@ class TaskActivity : AppCompatActivity() {
         val intentTask: Task = intent.getParcelableExtra(Task::class.toString())!!
         toolbarDelegate = TextToolbarDelegate(this, toolbar, intentTask.name)
         progressIndicatorDelegate = HideableProgressbarDelegate(progressBar)
-        errorDialogDelegate = AlertDialogDelegate(this, "Error")
+        errorDialogDelegate = AlertDialogDelegate(this, "Error",
+                positiveButtonText = "Go back",
+                positiveAction = {
+                    it.dismiss()
+                    onBackPressed()
+                }
+        )
 
         progressIndicatorDelegate.show()
         TasksAsyncModel.INSTANCE.getTask(intentTask.id, { loadedTask ->

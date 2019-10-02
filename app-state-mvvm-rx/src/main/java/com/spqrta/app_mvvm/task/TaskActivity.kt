@@ -28,13 +28,19 @@ class TaskActivity : AppCompatActivity() {
 
         toolbarDelegate = TextToolbarDelegate(this, toolbar, intentTask.name)
         progressIndicatorDelegate = HideableProgressbarDelegate(progressBar)
-        errorDialogDelegate = AlertDialogDelegate(this, "Error")
+        errorDialogDelegate = AlertDialogDelegate(this, "Error",
+                positiveButtonText = "Go back",
+                positiveAction = {
+                    it.dismiss()
+                    onBackPressed()
+                }
+        )
 
         model = ViewModelProviders.of(this, TaskViewModelFactory(intentTask.id))
                 .get(TaskViewModel::class.java)
 
         model.state.observe(this, Observer { state ->
-            when(state) {
+            when (state) {
                 is JustLoading -> {
                     progressIndicatorDelegate.show()
                 }

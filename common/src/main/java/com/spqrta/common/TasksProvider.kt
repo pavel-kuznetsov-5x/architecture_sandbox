@@ -31,18 +31,18 @@ class TasksProvider {
 
     fun getTasks(): List<Task> {
         LogUtil.logDebug("Loading tasks...", "");
-        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Custom immediate error")
+        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated immediate error")
         Thread.sleep(DELAY.toLong())
-        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Custom result error")
+        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated result error")
         LogUtil.logDebug("Tasks loaded", "");
         return taskList
     }
 
     fun getTask(id: Int): Task {
         LogUtil.logDebug("Loading task", id);
-        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Custom immediate error")
+        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated immediate error")
         Thread.sleep(DELAY.toLong())
-        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Custom result error")
+        if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated result error")
         LogUtil.logDebug("Task loaded", id)
         return taskList.first { it.id == id }
     }
