@@ -1,6 +1,6 @@
 package com.spqrta.app_rx_mvp_subject.model
 
-import com.spqrta.common.TasksDataSource
+import com.spqrta.common.TasksProvider
 import com.spqrta.common.model.Task
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,13 +14,13 @@ class TasksModel {
     }
 
     fun getTasksSingle(): Single<List<Task>> {
-        return Single.fromCallable { TasksDataSource.INSTANCE.getTasks() }
+        return Single.fromCallable { TasksProvider.INSTANCE.getTasks() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun getTaskSingle(id: Int): Single<Task> {
-        return Single.fromCallable { TasksDataSource.INSTANCE.getTask(id) }
+        return Single.fromCallable { TasksProvider.INSTANCE.getTask(id) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

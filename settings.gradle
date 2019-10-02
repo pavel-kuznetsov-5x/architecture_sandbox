@@ -1,1 +1,1 @@
-include ':app', /*':app-rx',*/ ':app-mvvm', ':app-moxy', ':app-rx-mvp-subject', ':common'
+include ':app-rx-mvp-subject', ':common', ':app-state-mvvm-rx'
