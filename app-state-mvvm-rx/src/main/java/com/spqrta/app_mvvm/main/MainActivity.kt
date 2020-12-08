@@ -10,6 +10,7 @@ import com.spqrta.app_mvvm.JustError
 import com.spqrta.app_mvvm.JustLoading
 import com.spqrta.app_mvvm.task.TaskActivity
 import com.spqrta.architecture_sandbox.R
+import com.spqrta.common.TasksAdapter
 import com.spqrta.common.delegates.*
 import com.spqrta.common.model.Task
 import kotlinx.android.synthetic.main.activity_main.*
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 is TasksViewModel.Success -> {
                     progressIndicatorDelegate.hide()
-                    adapter.setItemsAndUpdate(state.tasks)
+                    adapter.updateItems(state.tasks)
                 }
                 is JustError -> {
                     progressIndicatorDelegate.hide()
@@ -54,10 +55,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        adapter = TasksAdapter(this, R.layout.item_task)
-        adapter.setItemClickListener { position, view, item ->
+        adapter = TasksAdapter()
+        adapter.onItemClickListener = { item ->
             startActivity(Intent(this, TaskActivity::class.java)
-                    .putExtra(Task::class.toString(), item as Task))
+                    .putExtra(Task::class.toString(), item))
         }
 
         rvTasks.layoutManager = LinearLayoutManager(this)

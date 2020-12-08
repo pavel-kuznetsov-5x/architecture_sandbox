@@ -1,6 +1,5 @@
 package com.spqrta.common
 
-import com.cucumber007.reusables.utils.logging.LogUtil
 import com.spqrta.common.model.Task
 import java.util.*
 
@@ -8,7 +7,7 @@ class TasksProvider {
     val taskList = createTasksList()
 
     init {
-        LogUtil.setDebugMode(true)
+//        LogUtil.setDebugMode(true)
     }
 
     private object Holder { val INSTANCE = TasksProvider() }
@@ -30,20 +29,20 @@ class TasksProvider {
     )
 
     fun getTasks(): List<Task> {
-        LogUtil.logDebug("Loading tasks...", "");
+//        LogUtil.logDebug("Loading tasks...", "");
         if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated immediate error")
         Thread.sleep(DELAY.toLong())
         if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated result error")
-        LogUtil.logDebug("Tasks loaded", "");
+//        LogUtil.logDebug("Tasks loaded", "");
         return taskList
     }
 
     fun getTask(id: Int): Task {
-        LogUtil.logDebug("Loading task", id);
+//        LogUtil.logDebug("Loading task", id);
         if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated immediate error")
         Thread.sleep(DELAY.toLong())
         if(Random().nextDouble() < ERROR_PROBABILITY) throw NullPointerException("Simulated result error")
-        LogUtil.logDebug("Task loaded", id)
+//        LogUtil.logDebug("Task loaded", id)
         return taskList.first { it.id == id }
     }
 

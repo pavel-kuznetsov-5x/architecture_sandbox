@@ -9,6 +9,7 @@ import com.spqrta.app_rx_mvp_subject.R.id.rvTasks
 import com.spqrta.app_rx_mvp_subject.R.id.strLayout
 import com.spqrta.app_rx_mvp_subject.task.TaskActivity
 import com.spqrta.common.LoadingState
+import com.spqrta.common.TasksAdapter
 import com.spqrta.common.delegates.*
 import com.spqrta.common.model.Task
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,10 +32,10 @@ class MainActivity : AppCompatActivity(), MainView {
         toolbarDelegate = AppNameToolbarDelegate(this, toolbar)
         errorDialogDelegate = AlertDialogDelegate(this, "Error")
 
-        adapter = TasksAdapter(this, R.layout.item_task)
-        adapter.setItemClickListener { position, view, item ->
+        adapter = TasksAdapter()
+        adapter.onItemClickListener = { item ->
             startActivity(Intent(this, TaskActivity::class.java)
-                    .putExtra(Task::class.toString(), item as Task))
+                    .putExtra(Task::class.toString(), item))
         }
 
         presenter = MainPresenter(this)
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun displayTasks(tasks: List<Task>) {
-        adapter.setItemsAndUpdate(tasks)
+        adapter.updateItems(tasks)
         progressIndicatorDelegate.hide()
     }
 
