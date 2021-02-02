@@ -1,15 +1,21 @@
 package com.spqrta.reusables.utility.recycler
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter<T : Any, VH : BaseAdapter.BaseVh<T>> : RecyclerView.Adapter<VH>() {
 
     var onItemClickListener: ((T) -> Unit)? = null
 
     val items: MutableList<T> = mutableListOf<T>()
+
+    fun deleteItem(item: T) {
+        items.remove(item)
+        notifyDataSetChanged()
+//        notifyItemRemoved()
+    }
 
     fun updateItems(_items: List<T>) {
         items.clear()
@@ -35,12 +41,12 @@ abstract class BaseAdapter<T : Any, VH : BaseAdapter.BaseVh<T>> : RecyclerView.A
         }
     }
 
-    //todo handle forgetting override this method
     open fun createViewHolder(view: View, baseClickListener: ((Int) -> Unit)): VH {
-        return BaseVh<T>(
-            view,
-            baseClickListener
-        ) as VH
+        throw NotImplementedError("createViewHolder")
+//        return BaseVh<T>(
+//            view,
+//            baseClickListener
+//        ) as VH
     }
 
     override fun getItemCount(): Int = items.size

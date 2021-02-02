@@ -1,12 +1,13 @@
 package com.spqrta.reusables.utility.recycler
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 
-class EndlessScrollListener(
+import androidx.recyclerview.widget.RecyclerView
+
+open class EndlessScrollListener(
     private val loadMoreListener: OnLoadMoreListener
 ) : RecyclerView.OnScrollListener() {
-    private val visibleThreshold = 3
+    open val visibleThreshold = 3
     private var currentPage = 0
     private var currentTotalItems = 0
     private val firstItemPageIndex = 0
