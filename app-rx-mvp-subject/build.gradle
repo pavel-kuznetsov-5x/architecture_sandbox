@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 android {
-    compileSdkVersion 27
+    compileSdkVersion 30
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
     defaultConfig {
         applicationId "com.spqrta.app_rx_mvp_subject"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -42,7 +42,6 @@ repositories {
     mavenCentral()
 }
 
-apply from: "../common.gradle"
 dependencies {
     implementation project(':common')
     implementation 'io.reactivex.rxjava2:rxjava:2.1.10'

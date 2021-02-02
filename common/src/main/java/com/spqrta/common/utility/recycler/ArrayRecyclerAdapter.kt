@@ -5,9 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
-import com.spqrta.reusables.R
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_base.view.*
 
 //todo test
 open class ArrayRecyclerAdapter<T: Any>: BaseAdapter<T, BaseAdapter.BaseVh<T>>() {

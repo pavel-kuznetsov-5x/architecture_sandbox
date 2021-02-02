@@ -27,16 +27,6 @@ open class CustomApplication: Application() {
 
         lateinit var appConfig: AppConfig
 
-        fun analytics() =
-            analytics
-
-        private var analytics: Analytics = object : Analytics() {
-            override fun logExceptionToAnalytics(e: Throwable, text: String?) {}
-        }
-
-        fun injectAnalytics(analytics: Analytics) {
-            Companion.analytics = analytics
-        }
     }
 
     data class AppConfig(

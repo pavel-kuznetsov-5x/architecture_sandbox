@@ -1,7 +1,7 @@
 package com.spqrta.common.delegates
 
-import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.spqrta.common.LoadingState
 
 abstract class ProgressIndicatorDelegate {

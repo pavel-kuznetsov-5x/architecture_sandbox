@@ -10,7 +10,7 @@ interface ErrorToastMixin {
 
     fun applyErrorToastMixin(state: State<Payload>) {
         if (state is JustError) {
-            CustomApplication.analytics().logException(state.exception)
+//            CustomApplication.analytics().logException(state.exception)
             applyErrorToastMixin(state.exception)
         }
     }

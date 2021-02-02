@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import com.spqrta.reusables.R
+import com.spqrta.common.R
 import org.jetbrains.annotations.TestOnly
 
 abstract class NavActivity: BaseActivity() {
@@ -14,10 +14,13 @@ abstract class NavActivity: BaseActivity() {
 
     protected lateinit var navController: NavController
 
+    //todo reusables
+    abstract val navHostId: Int
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        navController = findNavController(R.id.navHost)
+        navController = findNavController(navHostId)
 
         navController.addOnDestinationChangedListener { _, destination, bundle ->
             try {
@@ -34,7 +37,7 @@ abstract class NavActivity: BaseActivity() {
     }
 
     protected fun getCurrentBaseFragment(): BaseFragment<*>? {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHost)
+        val navHostFragment = supportFragmentManager.findFragmentById(navHostId)
         val res = navHostFragment!!.childFragmentManager.fragments[0]
         if (res is BaseFragment<*>) {
             return res
@@ -48,7 +51,7 @@ abstract class NavActivity: BaseActivity() {
     }
 
     protected fun getCurrentFragment(): Fragment {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHost)
+        val navHostFragment = supportFragmentManager.findFragmentById(navHostId)
         return navHostFragment!!.childFragmentManager.fragments[0]
     }
 

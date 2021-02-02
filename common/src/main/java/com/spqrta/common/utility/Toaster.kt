@@ -25,10 +25,10 @@ class Toaster {
         ) {
             val toast = Toast.makeText(CustomApplication.context, text, length)
             backgroundColor?.let {
-                toast.view.setBackgroundColor(it)
+                toast.view!!.setBackgroundColor(it)
             }
             backgroundResource?.let {
-                toast.view.setBackgroundResource(it)
+                toast.view!!.setBackgroundResource(it)
             }
             fontColor?.let {
                 ((toast.view as ViewGroup).getChildAt(0) as TextView).setTextColor(it)

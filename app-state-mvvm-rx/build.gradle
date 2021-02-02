@@ -5,14 +5,14 @@ apply plugin: 'kotlin-kapt'
 
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 30
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
     defaultConfig {
         applicationId "com.spqrta.app_mvvm"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -40,7 +40,6 @@ repositories {
     mavenCentral()
 }
 
-apply from: "../common.gradle"
 dependencies {
     implementation project(':common')
     implementation 'android.arch.lifecycle:extensions:1.1.1'

@@ -1,8 +1,8 @@
 package com.spqrta.common.delegates
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
 
 class AlertDialogDelegate(
         activity: Activity,

@@ -1,7 +1,7 @@
 package com.spqrta.common.delegates
 
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.spqrta.common.R
 
 abstract class ToolbarDelegate(val activity: AppCompatActivity, val toolbar: Toolbar) {
