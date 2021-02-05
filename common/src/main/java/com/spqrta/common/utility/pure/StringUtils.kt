@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 fun String?.emptyIfNull(): String {
     return this ?: ""

@@ -1,6 +1,6 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
-import com.spqrta.reusables.utility.CustomApplication
+import com.spqrta.common.utility.CustomApplication
 
 object AppUtils {
     fun ifDebugMode(func: () -> Unit) {

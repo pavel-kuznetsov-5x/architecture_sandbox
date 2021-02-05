@@ -1,4 +1,4 @@
-package com.spqrta.reusables.base.display
+package com.spqrta.common.base.display
 
 import android.app.Activity
 import android.os.Bundle
@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.spqrta.reusables.base.mixins.ErrorToastMixin
+import com.spqrta.common.base.mixins.ErrorToastMixin
+import com.spqrta.common.base.mixins.ProgressbarMixin
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 //todo reusables
-abstract class BaseFragment<T : Activity>(layoutId: Int): Fragment(layoutId), ErrorToastMixin {
+//progressbar
+abstract class BaseFragment<T : Activity>(layoutId: Int): Fragment(layoutId), ErrorToastMixin, ProgressbarMixin {
 
     private var firstResume = true
 

@@ -1,4 +1,4 @@
-package com.spqrta.reusables.base.display
+package com.spqrta.common.base.display
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable

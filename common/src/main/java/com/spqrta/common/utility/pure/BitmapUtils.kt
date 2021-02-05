@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 import android.content.Context
 import android.text.Editable

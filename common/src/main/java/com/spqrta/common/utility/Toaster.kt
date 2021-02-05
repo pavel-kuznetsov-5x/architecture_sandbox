@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility
+package com.spqrta.common.utility
 
 import android.view.ViewGroup
 import android.widget.TextView

@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility
+package com.spqrta.common.utility
 
 
 import android.content.Context

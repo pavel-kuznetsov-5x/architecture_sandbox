@@ -2,8 +2,7 @@ package com.example.full.data.data_source
 
 import com.spqrta.common.tasks.Task
 import com.spqrta.common.tasks.TasksMockRetrofitApi
-import com.spqrta.common.tasks.TasksProvider
-import com.spqrta.reusables.utility.utils.applySchedulers
+import com.spqrta.common.utility.utils.applySchedulers
 import io.reactivex.Single
 
 object TasksRemoteDataSource {

@@ -8,10 +8,10 @@ import com.example.simple.R
 import com.example.simple.repository.TasksRepository
 import com.spqrta.common.tasks.TasksAdapter
 import com.spqrta.common.tasks.Task
-import com.spqrta.reusables.base.display.BaseFragment
-import com.spqrta.reusables.base.mixins.ErrorToastMixin
-import com.spqrta.reusables.utility.pure.setLinearLayoutManager
-import com.spqrta.reusables.utility.utils.attachProgressbar
+import com.spqrta.common.base.display.BaseFragment
+import com.spqrta.common.base.mixins.ErrorToastMixin
+import com.spqrta.common.utility.pure.setLinearLayoutManager
+import com.spqrta.common.utility.utils.attachProgressbar
 import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.progressBar
 

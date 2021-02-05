@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.recycler
+package com.spqrta.common.utility.recycler
 
 import androidx.recyclerview.widget.LinearLayoutManager
 

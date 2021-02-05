@@ -3,21 +3,21 @@ package com.spqrta.app_mvvm
 import android.arch.lifecycle.MutableLiveData
 
 abstract class BaseStateViewModel: BaseViewModel() {
-    var state = MutableLiveData<State<Payload>>()
+    var state = MutableLiveData<State()
 
     open fun reset() {
         state.value = JustInitial
     }
 }
 
-open class State<out T: Payload>
-object JustInitial : State<Nothing>()
-object JustLoading : State<Nothing>()
-object JustSuccess : State<Nothing>()
-object JustUnknownError : State<Nothing>()
-class JustError(val exception: Throwable) : State<Nothing>()
-object JustInvalidData : State<Nothing>()
+open class State
+object JustInitial : State()
+object JustLoading : State()
+object JustSuccess : State()
+object JustUnknownError : State()
+class JustError(val exception: Throwable) : State()
+object JustInvalidData : State()
 
 open class Payload
 
-class UndefinedStateException(state: State<Payload>): Exception(state.toString())
+class UndefinedStateException(state: State): Exception(state.toString())

@@ -1,6 +1,5 @@
-package com.spqrta.reusables.utility.recycler
+package com.spqrta.common.utility.recycler
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout

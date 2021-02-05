@@ -24,7 +24,7 @@ class TaskViewModel(
         })
     }
 
-    class Success(val task: Task) : State<Payload>()
+    class Success(val task: Task) : State()
 }
 
 class TaskViewModelFactory(private val id: Int) : ViewModelProvider.NewInstanceFactory() {

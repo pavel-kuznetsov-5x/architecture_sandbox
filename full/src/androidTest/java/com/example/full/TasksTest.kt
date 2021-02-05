@@ -1,4 +1,4 @@
-package com.example.simple
+package com.example.full
 
 
 import androidx.test.ext.junit.rules.activityScenarioRule

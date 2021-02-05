@@ -1,11 +1,10 @@
-package com.spqrta.reusables.base.display
+package com.spqrta.common.base.display
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import com.spqrta.common.R
 import org.jetbrains.annotations.TestOnly
 
 abstract class NavActivity: BaseActivity() {

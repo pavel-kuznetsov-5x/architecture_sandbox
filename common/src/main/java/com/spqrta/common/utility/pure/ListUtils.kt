@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 fun <T : Any?> List<T>.nullIfEmpty(): List<T>? = if (this.isEmpty()) {
     null

@@ -1,11 +1,9 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 import android.app.Activity
 import android.database.Cursor
 import android.graphics.Bitmap
-import android.os.Environment
 import android.provider.MediaStore
-import java.io.File
 
 object GalleryUtils {
 

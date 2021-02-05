@@ -7,9 +7,9 @@ import com.example.simple.MainActivity
 import com.example.simple.R
 import com.example.simple.repository.TasksRepository
 import com.spqrta.common.tasks.Task
-import com.spqrta.reusables.base.display.BaseFragment
-import com.spqrta.reusables.utility.pure.toView
-import com.spqrta.reusables.utility.utils.attachProgressbar
+import com.spqrta.common.base.display.BaseFragment
+import com.spqrta.common.utility.pure.toView
+import com.spqrta.common.utility.utils.attachProgressbar
 import kotlinx.android.synthetic.main.fragment_task.*
 
 class TaskFragment : BaseFragment<MainActivity>(R.layout.fragment_task) {

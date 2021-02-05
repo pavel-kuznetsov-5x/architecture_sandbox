@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.view_pager
+package com.spqrta.common.utility.view_pager
 
 import androidx.viewpager.widget.PagerAdapter
 

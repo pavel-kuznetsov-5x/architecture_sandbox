@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.utils
+package com.spqrta.common.utility.utils
 
 import org.threeten.bp.*
 import org.threeten.bp.format.DateTimeFormatter

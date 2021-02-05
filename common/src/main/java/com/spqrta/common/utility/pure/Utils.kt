@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 import android.app.Activity
 import android.app.DatePickerDialog
@@ -14,21 +14,15 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.lifecycle.MutableLiveData
-import io.reactivex.Observable
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
 import org.json.JSONArray
 import org.json.JSONObject
 import org.threeten.bp.LocalDate
-import com.spqrta.reusables.utility.CustomApplication
-import com.spqrta.reusables.utility.CustomApplication.Companion.context
+import com.spqrta.common.utility.CustomApplication
+import com.spqrta.common.utility.CustomApplication.Companion.context
 import java.io.InputStream
-import java.util.concurrent.TimeUnit
 import kotlin.math.pow
 import kotlin.math.round
 

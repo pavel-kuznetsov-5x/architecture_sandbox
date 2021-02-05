@@ -1,9 +1,9 @@
-package com.spqrta.reusables.utility.utils
+package com.spqrta.common.utility.utils
 
 import android.view.View
-import com.spqrta.reusables.utility.pure.Stub
-import com.spqrta.reusables.utility.pure.hide
-import com.spqrta.reusables.utility.pure.show
+import com.spqrta.common.utility.pure.Stub
+import com.spqrta.common.utility.pure.hide
+import com.spqrta.common.utility.pure.show
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

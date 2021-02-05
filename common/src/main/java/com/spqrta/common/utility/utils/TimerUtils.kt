@@ -1,4 +1,4 @@
-package com.spqrta.reusables.utility.utils
+package com.spqrta.common.utility.utils
 
 import io.reactivex.Observable
 import io.reactivex.Scheduler

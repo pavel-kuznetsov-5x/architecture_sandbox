@@ -2,7 +2,7 @@ package com.spqrta.common.tasks
 
 import android.view.View
 import com.spqrta.common.R
-import com.spqrta.reusables.utility.recycler.BaseAdapter
+import com.spqrta.common.utility.recycler.BaseAdapter
 import kotlinx.android.synthetic.main.item_task.view.*
 
 class TasksAdapter() : BaseAdapter<Task, TasksAdapter.VhTask>() {

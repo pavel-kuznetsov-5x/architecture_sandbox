@@ -1,8 +1,8 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
-import com.spqrta.reusables.utility.CustomApplication
+import com.spqrta.common.utility.CustomApplication
 
 object ResUtils {
 

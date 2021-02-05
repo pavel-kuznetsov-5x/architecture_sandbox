@@ -1,14 +1,12 @@
-package com.spqrta.reusables.base.mixins
+package com.spqrta.common.base.mixins
 
-import com.spqrta.reusables.utility.CustomApplication
-import com.spqrta.reusables.base.display.Payload
-import com.spqrta.reusables.base.display.State
-import com.spqrta.reusables.utility.Toaster
-import com.spqrta.reusables.base.display.JustError
+import com.spqrta.common.base.display.JustError
+import com.spqrta.common.base.display.State
+import com.spqrta.common.utility.Toaster
 
 interface ErrorToastMixin {
 
-    fun applyErrorToastMixin(state: State<Payload>) {
+    fun applyErrorToastMixin(state: State) {
         if (state is JustError) {
 //            CustomApplication.analytics().logException(state.exception)
             applyErrorToastMixin(state.exception)

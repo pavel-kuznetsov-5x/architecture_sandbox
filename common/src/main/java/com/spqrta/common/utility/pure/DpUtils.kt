@@ -1,7 +1,7 @@
-package com.spqrta.reusables.utility.pure
+package com.spqrta.common.utility.pure
 
 import android.content.Context
-import com.spqrta.reusables.utility.CustomApplication
+import com.spqrta.common.utility.CustomApplication
 
 object DpUtils {
     fun dpToPx(dp: Int, context: Context? = null): Float {

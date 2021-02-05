@@ -27,7 +27,7 @@ class TasksViewModel(private val tasksInteractor: TasksInteractor) : BaseStateVi
         loadTasks()
     }
 
-    class Success(val tasks: List<Task>) : State<Payload>()
+    class Success(val tasks: List<Task>) : State()
 }
 
 class TasksViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
