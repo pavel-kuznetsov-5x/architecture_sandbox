@@ -18,5 +18,9 @@
         android:id="@+id/taskFragment"
         android:name="com.example.simple.screens.task.TaskFragment"
         android:label="fragment_task"
-        tools:layout="@layout/fragment_task" />
+        tools:layout="@layout/fragment_task" >
+        <argument
+            android:name="taskId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

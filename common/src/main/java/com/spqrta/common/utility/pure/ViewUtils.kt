@@ -229,3 +229,7 @@ fun View.showIfEmpty(value: List<Any>) {
 fun TextView.textString(): String {
     return text.toString()
 }
+
+fun String.toView(textView: TextView) {
+    textView.text = this
+}
