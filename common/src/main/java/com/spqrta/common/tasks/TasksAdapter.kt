@@ -1,9 +1,7 @@
-package com.spqrta.common
+package com.spqrta.common.tasks
 
-import android.content.Context
 import android.view.View
-import android.widget.AdapterView
-import com.spqrta.common.model.Task
+import com.spqrta.common.R
 import com.spqrta.reusables.utility.recycler.BaseAdapter
 import kotlinx.android.synthetic.main.item_task.view.*
 

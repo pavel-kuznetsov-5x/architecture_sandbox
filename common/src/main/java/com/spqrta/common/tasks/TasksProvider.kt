@@ -1,22 +1,12 @@
-package com.spqrta.common
+package com.spqrta.common.tasks
 
-import com.spqrta.common.model.Task
 import java.util.*
 
-class TasksProvider {
+object TasksProvider {
+    const val DELAY = 500
+    const val ERROR_PROBABILITY = 0.0
+
     val taskList = createTasksList()
-
-    init {
-//        LogUtil.setDebugMode(true)
-    }
-
-    private object Holder { val INSTANCE = TasksProvider() }
-
-    companion object {
-        val INSTANCE: TasksProvider by lazy { Holder.INSTANCE }
-        const val DELAY = 500
-        const val ERROR_PROBABILITY = 0.0
-    }
 
     private fun createTasksList() = listOf(
             Task.default(),

@@ -9,9 +9,9 @@ import com.spqrta.app_rx_mvp_subject.R.id.rvTasks
 import com.spqrta.app_rx_mvp_subject.R.id.strLayout
 import com.spqrta.app_rx_mvp_subject.task.TaskActivity
 import com.spqrta.common.LoadingState
-import com.spqrta.common.TasksAdapter
+import com.spqrta.common.tasks.TasksAdapter
 import com.spqrta.common.delegates.*
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {

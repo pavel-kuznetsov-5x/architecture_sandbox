@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.spqrta.app_rx_mvp_subject.R
 import com.spqrta.common.delegates.*
-import com.spqrta.common.model.Task
-import com.spqrta.common.model.TasksAsyncModel
+import com.spqrta.common.tasks.Task
+import com.spqrta.common.tasks.TasksAsyncModel
 import kotlinx.android.synthetic.main.activity_task.*
 
 class TaskActivity : AppCompatActivity() {

@@ -6,8 +6,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.full.MainActivity
 import com.example.full.R
 import com.example.full.data.repository.TasksRepository
-import com.spqrta.common.TasksAdapter
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.TasksAdapter
+import com.spqrta.common.tasks.Task
 import com.spqrta.reusables.base.display.BaseFragment
 import com.spqrta.reusables.base.mixins.ErrorToastMixin
 import com.spqrta.reusables.utility.pure.setLinearLayoutManager

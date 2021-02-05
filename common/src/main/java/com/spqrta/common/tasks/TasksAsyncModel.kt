@@ -1,8 +1,7 @@
-package com.spqrta.common.model
+package com.spqrta.common.tasks
 
 import android.os.Handler
 import android.os.Looper
-import com.spqrta.common.TasksProvider
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -16,7 +15,7 @@ class TasksAsyncModel {
     fun getTasks(callback: (List<Task>) -> Unit, errorCallback: (Throwable) -> Unit) {
         GlobalScope.launch {
             try {
-                val tasks = TasksProvider.INSTANCE.getTasks()
+                val tasks = TasksProvider.getTasks()
                 handler.post {
                     callback(tasks)
                 }
@@ -36,7 +35,7 @@ class TasksAsyncModel {
         else {
             GlobalScope.launch {
                 try {
-                    val task = TasksProvider.INSTANCE.getTask(id)
+                    val task = TasksProvider.getTask(id)
                     handler.post {
                         cache.put(id, task)
                         callback(task)

@@ -1,6 +1,6 @@
 package com.spqrta.app_mvvm.data
 
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.Task
 import io.reactivex.Single
 
 class TasksRepository(private val dataSource: TasksDataSource) {

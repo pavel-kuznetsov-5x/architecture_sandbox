@@ -1,4 +1,4 @@
-package com.spqrta.common.model
+package com.spqrta.common.tasks
 
 import android.util.LruCache
 

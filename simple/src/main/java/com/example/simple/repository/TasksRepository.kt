@@ -1,10 +1,8 @@
 package com.example.simple.repository
 
-import com.spqrta.common.model.Task
-import com.spqrta.common.model.TasksAsyncModel
-import io.reactivex.Observable
+import com.spqrta.common.tasks.Task
+import com.spqrta.common.tasks.TasksAsyncModel
 import io.reactivex.Single
-import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.SingleSubject
 
 object TasksRepository {

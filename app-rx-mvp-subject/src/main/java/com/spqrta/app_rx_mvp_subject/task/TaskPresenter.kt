@@ -2,7 +2,7 @@ package com.spqrta.app_rx_mvp_subject.task
 
 import com.spqrta.app_rx_mvp_subject.interactors.TaskInteractor
 import com.spqrta.common.LoadingState
-import com.spqrta.common.model.TasksAsyncModel
+import com.spqrta.common.tasks.TasksAsyncModel
 import io.reactivex.disposables.Disposable
 
 class TaskPresenter(var view: TaskView?, taskId: Int) {

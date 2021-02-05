@@ -1,7 +1,7 @@
 package com.spqrta.app_rx_mvp_subject.task
 
 import com.spqrta.common.LoadingState
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.Task
 
 interface TaskView {
     fun displayTask(task: Task)

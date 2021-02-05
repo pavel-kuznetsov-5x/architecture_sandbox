@@ -1,7 +1,7 @@
 package com.spqrta.app_rx_mvp_subject.model
 
-import com.spqrta.common.TasksProvider
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.TasksProvider
+import com.spqrta.common.tasks.Task
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

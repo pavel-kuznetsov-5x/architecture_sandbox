@@ -1,7 +1,7 @@
 package com.spqrta.app_mvvm.data
 
-import com.spqrta.common.model.Task
-import com.spqrta.common.model.TasksAsyncModel
+import com.spqrta.common.tasks.Task
+import com.spqrta.common.tasks.TasksAsyncModel
 import io.reactivex.Single
 import io.reactivex.subjects.BehaviorSubject
 

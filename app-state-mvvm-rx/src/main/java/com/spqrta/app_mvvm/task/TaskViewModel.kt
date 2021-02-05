@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.spqrta.app_mvvm.*
 import com.spqrta.app_mvvm.data.TasksInteractor
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.Task
 
 
 class TaskViewModel(

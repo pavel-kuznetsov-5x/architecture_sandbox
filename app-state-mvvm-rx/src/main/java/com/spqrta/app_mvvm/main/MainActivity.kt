@@ -10,9 +10,9 @@ import com.spqrta.app_mvvm.JustError
 import com.spqrta.app_mvvm.JustLoading
 import com.spqrta.app_mvvm.task.TaskActivity
 import com.spqrta.architecture_sandbox.R
-import com.spqrta.common.TasksAdapter
+import com.spqrta.common.tasks.TasksAdapter
 import com.spqrta.common.delegates.*
-import com.spqrta.common.model.Task
+import com.spqrta.common.tasks.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
