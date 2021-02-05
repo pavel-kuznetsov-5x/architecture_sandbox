@@ -10,6 +10,7 @@ import com.example.simple.MainActivity
 import com.example.simple.R
 import com.example.simple.repository.TasksRepository
 import com.spqrta.common.TasksAdapter
+import com.spqrta.common.model.Task
 import com.spqrta.reusables.base.display.BaseFragment
 import com.spqrta.reusables.base.mixins.ErrorToastMixin
 import com.spqrta.reusables.utility.pure.setLinearLayoutManager
@@ -36,9 +37,13 @@ class ListFragment : BaseFragment<MainActivity>(R.layout.fragment_list), ErrorTo
                 .getTasks()
                 .attachProgressbar(progressBar)
                 .subscribeManaged({
-                    adapter.updateItems(it)
+                    displayTasks(it)
                 }, {
                     applyErrorToastMixin(it)
                 })
+    }
+
+    private fun displayTasks(tasks: List<Task>) {
+        adapter.updateItems(tasks)
     }
 }

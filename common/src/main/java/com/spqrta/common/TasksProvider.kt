@@ -14,8 +14,8 @@ class TasksProvider {
 
     companion object {
         val INSTANCE: TasksProvider by lazy { Holder.INSTANCE }
-        const val DELAY = 2000
-        const val ERROR_PROBABILITY = 0.1
+        const val DELAY = 500
+        const val ERROR_PROBABILITY = 0.0
     }
 
     private fun createTasksList() = listOf(
