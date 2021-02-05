@@ -1,3 +1,4 @@
+include ':full'
 include ':tests-common'
 include ':simple'
 include ':app-rx-mvp-subject', ':common', ':app-state-mvvm-rx'
